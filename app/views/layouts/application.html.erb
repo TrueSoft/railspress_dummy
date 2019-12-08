@@ -1,15 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailspressDummy</title>
+    <title>Dummy theme</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <link rel='stylesheet' id='wp-block-library-css'  href='<%= includes_url('css/dist/block-library/style.min.css') %>' type='text/css' media='all' />
+    <link rel='stylesheet' id='wp-block-library-theme-css'  href='<%= includes_url('css/dist/block-library/theme.min.css') %>' type='text/css' media='all' />
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <%= yield %>
+<div id="page" class="site">
+
+  <%= render 'layouts/header' %>
+
+  <%= bootstrap_flash %>
+
+  <div id="content" class="site-content">
+    <section id="primary" class="content-area">
+      <main id="main" class="site-main">
+        <%= display_breadcrumb @breadcrumb %>
+        <%= yield %>
+      </main>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-info">
+      <% blog_info = get_bloginfo('name') %>
+      <% unless blog_info.blank? %>
+        <%= link_to bloginfo('name'), esc_url(home_url('/')), class: 'site-name', rel: 'home' %>,
+      <% end %>
+    </div>
+  </footer>
+
+</div>
   </body>
 </html>
