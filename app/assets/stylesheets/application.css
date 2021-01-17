@@ -15,6 +15,22 @@
  *= require_self
  */
 
+/* This stylesheet is activated when the layout 'application' from this project is used */
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+}
+
+.navbar-brand {
+    float: left;
+}
+
+#menu-top-menu li {
+    vertical-align: top;
+    display: inline-block;
+    margin: 0 4px;
+}
+
 nav > ol.breadcrumb {
     margin: calc(3 * 1rem) calc(10% + 60px) 1rem;
     list-style: none;

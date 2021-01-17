@@ -11,7 +11,7 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
+  <body <%= body_class.html_safe %>>
 <div id="page" class="site">
 
   <%= render 'layouts/header' %>
